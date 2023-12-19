@@ -11,3 +11,8 @@ function afficher_formulaire_reservation() {
     return ob_get_clean();
 }
 add_shortcode('formulaire_reservation', 'afficher_formulaire_reservation');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['date_reservation'])) {
+    $date_reservation = sanitize_text_field($_POST['date_reservation']);
+    // Traiter la réservation ici
+}
